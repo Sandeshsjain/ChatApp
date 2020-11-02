@@ -34,11 +34,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         holder.user_name.setText(list.get(position).getName());
         String ip = list.get(position).getIpAddress();
+        String name = list.get(position).getName();
         holder.start_chat_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,MainActivity.class);
                 intent.putExtra("IP",ip);
+                intent.putExtra("name",name);
                 context.startActivity(intent);
             }
         });
